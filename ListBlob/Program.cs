@@ -31,8 +31,10 @@ namespace ListBlob
                     // Get the permission of each container
                     BlobContainerPermissions permissions = blobContainer.GetPermissions();
                     SharedAccessBlobPolicy policy = new SharedAccessBlobPolicy();
-                    permissions.SharedAccessPolicies[permissions.SharedAccessPolicies.Keys.ToString()] = policy;
-                    Console.WriteLine("Perm Container: " + policy.Permissions);
+                    //permissions.SharedAccessPolicies[permissions.SharedAccessPolicies.Keys] = policy; --> this line won't work
+                    //Console.WriteLine("Perm Container: " + policy.Permissions);
+                    /* TODO: Foreach  in permissions.SharedAccessPolicies[permissions.SharedAccessPolicies.Keys] to iterate all Keys and get the permissions for each key */
+                    
                     // List the blobs inside each container
                     foreach (BlobItem blob in containerToAnalyze.GetBlobs())
                     {
